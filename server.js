@@ -9,6 +9,8 @@ const path = require('path');
 
 const app = express();
 app.use(express.json({ limit: '64mb' }));
+app.use(express.json({ limit: '25mb' })); // Format C posts base64 screenshots
+app.use(require('./render'));
 const TOKEN = process.env.RENDER_TOKEN || '';
 
 function sh(cmd, args) {
